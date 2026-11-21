@@ -1,0 +1,45 @@
+O aplicativo estava apontando para uma URL da pythonanywhere.
+Para fazer funcionar, rodei o pycodebr_flix_api e configurei a URL base desse projeto
+
+
+Em api\service.py:
+def __init__(self):
+    # self.__base_url = 'https://pycodebr.pythonanywhere.com/api/v1/'
+    self.__base_url = 'http://127.0.0.1:8000/api/v1/'
+    self.__auth_url = f'{self.__base_url}authentication/token/'
+
+Em actors\repository.py:
+def __init__(self):
+    # self.__base_url = 'https://pycodebr.pythonanywhere.com/api/v1/'
+    self.__base_url = 'http://127.0.0.1:8000/api/v1/'
+    self.__actors_url = f'{self.__base_url}actors/'
+    self.__headers = {
+        'Authorization': f'Bearer {st.session_state.token}'
+    }
+
+Em genres\repository.py:
+def __init__(self):
+    # self.__base_url = 'https://pycodebr.pythonanywhere.com/api/v1/'
+    self.__base_url = 'http://127.0.0.1:8000/api/v1/'
+    self.__genres_url = f'{self.__base_url}genres/'
+    self.__headers = {
+        'Authorization': f'Bearer {st.session_state.token}'
+    }
+
+Em movies\repository.py:
+def __init__(self):
+    # self.__base_url = 'https://pycodebr.pythonanywhere.com/api/v1/'
+    self.__base_url = 'http://127.0.0.1:8000/api/v1/'
+    self.__movies_url = f'{self.__base_url}movies/'
+    self.__headers = {
+        'Authorization': f'Bearer {st.session_state.token}'
+    }
+
+Em reviews\repository.py:
+def __init__(self):
+    # self.__base_url = 'https://pycodebr.pythonanywhere.com/api/v1/'
+    self.__base_url = 'http://127.0.0.1:8000/api/v1/'
+    self.__reviews_url = f'{self.__base_url}reviews/'
+    self.__headers = {
+        'Authorization': f'Bearer {st.session_state.token}'
+    }
